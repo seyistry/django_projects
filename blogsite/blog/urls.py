@@ -5,7 +5,8 @@ from .views import (
 	PostListView, 
 	PostDetailView, 
 	post_share,
-	post_comment
+	post_comment,
+	post_search
 	)
 app_name = 'blog'
 
@@ -20,5 +21,8 @@ urlpatterns = [
     path('<int:post_id>/share/', post_share, name='post_share'),
     path(
         '<int:post_id>/comment/', post_comment, name='post_comment'
+    ),
+    path(
+        'search/', post_search, name='post_search'
     ),
 ]
