@@ -5,8 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="lorem">
-        <meta name="keywords"
-              content="keep">
+        <meta name="keywords" content="keep">
         <title>
             {% block title %}
             {% endblock title %}
@@ -41,6 +40,16 @@
                 {% endif %}
             </span>
         </div>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class={{ message.tags }}>
+                        {{ message| safe }}
+                        <a href="#" class="close">X</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         <div id="content">
             {% block content %}
             {% endblock content %}
